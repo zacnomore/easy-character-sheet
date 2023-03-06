@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   template: ''
 })
 export class AppComponent {
-  title = 'easy-character-sheet';
 }
