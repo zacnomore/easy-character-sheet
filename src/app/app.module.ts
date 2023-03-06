@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AbilitiesComponent } from './ability-score/ability-score.component';
 
 import { AppComponent } from './app.component';
 
@@ -8,9 +9,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AbilitiesComponent
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

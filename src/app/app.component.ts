@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ecs-root',
-  template: ''
+  template: `<ecs-abilities></ecs-abilities>`
 })
 export class AppComponent {
 }
