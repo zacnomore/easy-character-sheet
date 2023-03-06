@@ -1,9 +1,12 @@
-{{ name }}
-<label>
-  Score
-  <input/>
-</label>
-<label>
-  Modifier
-  <input/>
-</label>
+<header>{{ name }}</header>
+<mat-form-field>
+  <mat-label>Score</mat-label>
+  <input matInput [formControl]="scoreControl"/>
+</mat-form-field>
+<footer>
+  <label>
+    Modifier
+    <output>{{ modifier }}</output>
+  </label>
+
+</footer>
