@@ -6,15 +6,8 @@ import { AbilityComponent } from './ability/ability.component';
   selector: 'ecs-abilities',
   standalone: true,
   imports: [CommonModule, AbilityComponent],
-  template: `
-    <ecs-ability *ngFor="let a of abilities" [name]="a"></ecs-ability>
-  `,
-  styles: [`
-    :host {
-      display: flex;
-      flex-direction: column;
-    }
-  `]
+  templateUrl: './ability-score.component.html',
+  styleUrls: ['./ability-score.component.scss']
 })
 export class AbilitiesComponent {
   abilities = [
