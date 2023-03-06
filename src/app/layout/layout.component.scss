@@ -3,22 +3,35 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     "header    header header"
-    "abilities skills ."
-    "abilities throws .";
+    "ab-sk-th  status ."
+    "ab-sk-th  .      .";
+}
+
+.ab-sk-th {
+  display: grid;
+  grid-area: ab-sk-th;
+  grid-template-areas:
+    "abilities skills skills"
+    "abilities throws throws";
+  gap: var(--gap-md);
+
+  ecs-abilities {
+    grid-area: abilities;
+  }
+
+  ecs-skills {
+    grid-area: skills;
+  }
+
+  ecs-saving-throws {
+    grid-area: throws;
+  }
 }
 
 ecs-header {
   grid-area: header;
 }
 
-ecs-abilities {
-  grid-area: abilities;
-}
-
-ecs-skills {
-  grid-area: skills;
-}
-
-ecs-saving-throws {
-  grid-area: throws;
+ecs-status {
+  grid-area: status;
 }
