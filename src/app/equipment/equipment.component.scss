@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  gap: var(--gap-md);
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+
+  mat-form-field {
+    width: 60px;
+  }
+}

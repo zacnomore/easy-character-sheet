@@ -1,5 +1,26 @@
 :host {
   display: flex;
+  align-items: baseline;
+
+  :first-child {
+    flex-basis: (100% / 3);
+  }
+
+  :last-child {
+    flex-basis: (100% / 3) * 2;
+  }
+}
+
+.character {
+  width: 160px;
+}
+
+section:not(.name) {
+  display: flex;
   flex-wrap: wrap;
   gap: 20px;
+
+  mat-form-field {
+    flex: 1 1 200px;
+  }
 }
