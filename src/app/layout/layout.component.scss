@@ -1,0 +1,24 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "header    header header"
+    "abilities skills ."
+    "abilities throws .";
+}
+
+ecs-header {
+  grid-area: header;
+}
+
+ecs-abilities {
+  grid-area: abilities;
+}
+
+ecs-skills {
+  grid-area: skills;
+}
+
+ecs-saving-throws {
+  grid-area: throws;
+}
