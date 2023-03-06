@@ -30,7 +30,10 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": ["./node_modules/normalize.css/normalize.css"],
+            "styles": [
+              "src/custom-theme.scss",
+              "./node_modules/normalize.css/normalize.css"
+            ],
             "scripts": []
           },
           "configurations": {
