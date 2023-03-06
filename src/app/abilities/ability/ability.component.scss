@@ -1,11 +1,15 @@
 :host {
   border: 1px solid black;
-  padding: 20px;
+  padding: var(--gap-lg);
 }
 
 :host,
 label {
   display: flex;
   flex-direction: column;
-  width: 140px;
+  width: 80px;
+}
+
+header {
+  margin-bottom: var(--gap-lg);
 }

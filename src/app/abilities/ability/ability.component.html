@@ -2,10 +2,5 @@
 <mat-form-field>
   <mat-label>Score</mat-label>
   <input matInput [formControl]="scoreControl" />
+  <mat-hint>{{ modifier(scoreControl.value) }}</mat-hint>
 </mat-form-field>
-<footer>
-  <label>
-    Modifier
-    <output>{{ modifier(scoreControl.value) }}</output>
-  </label>
-</footer>
