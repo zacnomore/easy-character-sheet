@@ -35,6 +35,7 @@ $easy-character-sheet-theme: mat.define-light-theme(
   )
 );
 
+// TODO: SLIM
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
@@ -47,4 +48,11 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// TODO: Consider tokens?
+html {
+  --gap-sm: 4px;
+  --gap-md: 8px;
+  --gap-lg: 16px;
 }
