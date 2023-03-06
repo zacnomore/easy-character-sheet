@@ -7,14 +7,19 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'ecs-ability',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './ability.component.html',
-  styleUrls: ['./ability.component.scss']
+  styleUrls: ['./ability.component.scss'],
 })
 export class AbilityComponent {
   @Input() name = '';
 
-  protected scoreControl = new FormControl(10, { nonNullable: true })
+  protected scoreControl = new FormControl(10, { nonNullable: true });
 
   get modifier() {
     return Math.floor((this.scoreControl.value - 10) / 2);

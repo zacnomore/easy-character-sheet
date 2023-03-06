@@ -7,7 +7,7 @@ import { AbilityComponent } from './ability/ability.component';
   standalone: true,
   imports: [CommonModule, AbilityComponent],
   templateUrl: './ability-score.component.html',
-  styleUrls: ['./ability-score.component.scss']
+  styleUrls: ['./ability-score.component.scss'],
 })
 export class AbilitiesComponent {
   abilities = [
@@ -16,6 +16,6 @@ export class AbilitiesComponent {
     'Constitution',
     'Intelligence',
     'Wisdom',
-    'Charisma'
-  ]
+    'Charisma',
+  ];
 }
