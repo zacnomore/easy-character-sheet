@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'ecs-root',
+  template: ''
 })
 export class AppComponent {
   title = 'easy-character-sheet';
