@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     <ecs-header></ecs-header>
     <ecs-abilities></ecs-abilities>
     <ecs-skills></ecs-skills>
+    <ecs-saving-throws></ecs-saving-throws>
   `,
 })
 export class AppComponent {}

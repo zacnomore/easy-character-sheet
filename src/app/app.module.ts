@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { HeaderComponent } from './header/header.component';
 import { SkillsComponent } from './skills/skills.component';
+import { SavingThrowsComponent } from './saving-throws/saving-throws.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { SkillsComponent } from './skills/skills.component';
     HeaderComponent,
     AbilitiesComponent,
     SkillsComponent,
+    SavingThrowsComponent,
     BrowserAnimationsModule,
   ],
   providers: [
