@@ -21,7 +21,7 @@ export class AbilityComponent {
 
   protected scoreControl = new FormControl(10, { nonNullable: true });
 
-  get modifier() {
-    return Math.floor((this.scoreControl.value - 10) / 2);
+  modifier(score: number) {
+    return Math.floor((score - 10) / 2);
   }
 }

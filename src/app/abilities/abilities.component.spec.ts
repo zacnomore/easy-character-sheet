@@ -1,14 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AbilitiesComponent } from './abilities.component';
 
-describe('AbilityScoreComponent', () => {
+describe('AbilitiesComponent', () => {
   let component: AbilitiesComponent;
   let fixture: ComponentFixture<AbilitiesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AbilitiesComponent],
+      imports: [AbilitiesComponent, NoopAnimationsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AbilitiesComponent);
