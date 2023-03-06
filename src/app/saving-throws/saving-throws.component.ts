@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
       <input type="text" matInput />
     </mat-form-field>
   `,
+  styles: [':host { display: flex; }'],
 })
 export class SavingThrowComponent {
   @Input() name = '';

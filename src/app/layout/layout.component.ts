@@ -5,6 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { SavingThrowsComponent } from '../saving-throws/saving-throws.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { StatusComponent } from '../status/status.component';
+import { AttacksComponent } from '../attacks/attacks.component';
 
 @Component({
   selector: 'ecs-layout',
@@ -16,6 +17,7 @@ import { StatusComponent } from '../status/status.component';
     SkillsComponent,
     SavingThrowsComponent,
     StatusComponent,
+    AttacksComponent,
   ],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],

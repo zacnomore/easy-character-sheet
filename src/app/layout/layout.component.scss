@@ -2,9 +2,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-    "header    header header"
-    "ab-sk-th  status ."
-    "ab-sk-th  .      .";
+    "header    header   header"
+    "ab-sk-th  status   ."
+    "ab-sk-th  attacks  ."
+    "ab-sk-th  .        .";
 }
 
 .ab-sk-th {
@@ -34,4 +35,8 @@ ecs-header {
 
 ecs-status {
   grid-area: status;
+}
+
+ecs-attacks {
+  grid-area: attacks;
 }
