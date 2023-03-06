@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <ecs-header></ecs-header>
     <ecs-abilities></ecs-abilities>
+    <ecs-skills></ecs-skills>
   `,
 })
 export class AppComponent {}
