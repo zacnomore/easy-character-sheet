@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
   selector: 'ecs-root',
   template: `<ecs-abilities></ecs-abilities>`,
 })
-export class AppComponent { }
+export class AppComponent {}
