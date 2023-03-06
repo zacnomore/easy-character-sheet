@@ -1,0 +1,31 @@
+:host {
+  min-width: 240px;
+}
+
+section {
+  display: flex;
+}
+
+header {
+  margin-bottom: var(--gap-sm);
+}
+
+.form-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--gap-sm);
+  flex-wrap: wrap;
+
+  header {
+    flex-basis: 100%;
+  }
+
+  mat-form-field {
+    flex-basis: calc((100% / 3) - var(--gap-sm));
+    flex-grow: 1;
+  }
+}
+
+.hit-dice mat-form-field {
+  width: 120px;
+}

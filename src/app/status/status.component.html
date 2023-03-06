@@ -1,0 +1,65 @@
+<section class="ais form-row">
+  <mat-form-field>
+    <mat-label>Armor</mat-label>
+    <input type="text" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Initiative</mat-label>
+    <input type="text" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Speed</mat-label>
+    <input type="text" matInput />
+  </mat-form-field>
+</section>
+
+<section class="form-row">
+  <header>Hit Points</header>
+  <mat-form-field>
+    <mat-label>Current</mat-label>
+    <input type="text" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Temporary</mat-label>
+    <input type="text" matInput />
+  </mat-form-field>
+</section>
+
+<section>
+  <div class="hit-dice">
+    <header>Hit Dice</header>
+    <mat-form-field>
+      <mat-label>Remaining</mat-label>
+      <input type="text" matInput />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Total</mat-label>
+      <input type="text" matInput />
+    </mat-form-field>
+  </div>
+
+  <div class="death-saves">
+    <header>Death Saves</header>
+    <div>
+      <span>Successes</span>
+      <mat-button-toggle-group>
+        <mat-button-toggle>1</mat-button-toggle>
+        <mat-button-toggle>2</mat-button-toggle>
+        <mat-button-toggle>3</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <div>
+      <span>Failures</span>
+      <mat-button-toggle-group>
+        <mat-button-toggle>1</mat-button-toggle>
+        <mat-button-toggle>2</mat-button-toggle>
+        <mat-button-toggle>3</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+</section>
