@@ -1,3 +1,5 @@
+@use "sass:math";
+
 :host {
   min-width: 240px;
 }
@@ -18,7 +20,7 @@ section {
   }
 
   mat-form-field {
-    flex-basis: calc((100% / 3) - var(--gap-sm));
+    flex-basis: calc(math.div(100%, 3) - var(--gap-sm));
     flex-grow: 1;
   }
 }

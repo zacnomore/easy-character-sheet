@@ -1,13 +1,15 @@
+@use "sass:math";
+
 :host {
   display: flex;
   align-items: baseline;
 
   :first-child {
-    flex-basis: (100% / 3);
+    flex-basis: math.div(100%, 3);
   }
 
   :last-child {
-    flex-basis: (100% / 3) * 2;
+    flex-basis: math.div(100%, 3) * 2;
   }
 }
 
