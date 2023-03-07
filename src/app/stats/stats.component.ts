@@ -7,7 +7,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { StatusComponent } from './status/status.component';
 import { AttacksComponent } from './attacks/attacks.component';
 import { EquipmentComponent } from './equipment/equipment.component';
-import { BackgroundComponent } from './background/background.component';
+import { ShortBackgroundComponent } from './short-background/short-background.component';
 
 @Component({
   selector: 'ecs-stats',
@@ -21,7 +21,7 @@ import { BackgroundComponent } from './background/background.component';
     StatusComponent,
     AttacksComponent,
     EquipmentComponent,
-    BackgroundComponent,
+    ShortBackgroundComponent,
   ],
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss'],
