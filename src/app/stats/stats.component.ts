@@ -10,7 +10,7 @@ import { EquipmentComponent } from '../equipment/equipment.component';
 import { BackgroundComponent } from '../background/background.component';
 
 @Component({
-  selector: 'ecs-layout',
+  selector: 'ecs-stats',
   standalone: true,
   imports: [
     CommonModule,
@@ -23,7 +23,7 @@ import { BackgroundComponent } from '../background/background.component';
     EquipmentComponent,
     BackgroundComponent,
   ],
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss'],
+  templateUrl: './stats.component.html',
+  styleUrls: ['./stats.component.scss'],
 })
-export class LayoutComponent {}
+export class StatsComponent {}
