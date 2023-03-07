@@ -1,4 +1,10 @@
 :host {
   display: flex;
   width: var(--field-width-lg);
+  align-items: center;
+  gap: var(--gap-sm);
+}
+
+span {
+  width: 20px;
 }

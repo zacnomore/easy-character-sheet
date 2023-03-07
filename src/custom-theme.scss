@@ -48,9 +48,10 @@ html {
   --gap-md: 8px;
   --gap-lg: 16px;
 
-  --header-gap: var(--gap-md);
+  --section-gap: var(--gap-lg);
+
   --field-h-gap: var(--gap-sm);
-  --field-v-gap: var(--gap-md);
+  --field-v-gap: var(--gap-sm);
 
   --field-width-xs: 60px;
   --field-width-sm: 80px;

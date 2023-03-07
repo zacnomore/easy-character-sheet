@@ -7,6 +7,8 @@
     "ab-sk-th   attacks     ."
     "ab-sk-th   equipment   ."
     "ab-sk-th   .           .";
+  gap: var(--section-gap);
+  padding: var(--section-gap);
 }
 
 .ab-sk-th {
@@ -15,19 +17,19 @@
   grid-template-areas:
     "abilities skills skills"
     "abilities throws throws";
-  gap: var(--gap-md);
+  gap: var(--section-gap);
+}
 
-  ecs-abilities {
-    grid-area: abilities;
-  }
+ecs-abilities {
+  grid-area: abilities;
+}
 
-  ecs-skills {
-    grid-area: skills;
-  }
+ecs-skills {
+  grid-area: skills;
+}
 
-  ecs-saving-throws {
-    grid-area: throws;
-  }
+ecs-saving-throws {
+  grid-area: throws;
 }
 
 ecs-header {

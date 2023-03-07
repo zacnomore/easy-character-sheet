@@ -4,6 +4,7 @@
 
 section {
   display: flex;
+  margin: var(--section-gap) 0;
 }
 
 .form-row {
@@ -24,4 +25,5 @@ section {
 
 .hit-dice mat-form-field {
   width: var(--field-width-md);
+  margin-bottom: var(--field-v-gap);
 }

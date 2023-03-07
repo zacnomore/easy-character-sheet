@@ -9,5 +9,6 @@ section {
 
   mat-form-field {
     width: var(--field-width-xs);
+    padding: 0 0 var(--field-v-gap);
   }
 }
