@@ -3,7 +3,9 @@
   padding: var(--section-gap);
   grid-template-areas:
     "header       header      header"
-    "appearance   .           .";
+    "appearance   allies      allies"
+    "backstory    additional  additional"
+    "backstory    treasure    treasure";
   grid-template-columns: repeat(3, 1fr);
 }
 
@@ -13,4 +15,20 @@ ecs-background-header {
 
 ecs-appearance {
   grid-area: appearance;
+}
+
+ecs-allies-organizations {
+  grid-area: allies;
+}
+
+ecs-backstory {
+  grid-area: backstory;
+}
+
+ecs-additional-features {
+  grid-area: additional;
+}
+
+ecs-treasure {
+  grid-area: treasure;
 }
