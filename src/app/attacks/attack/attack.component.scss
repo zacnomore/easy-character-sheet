@@ -8,13 +8,13 @@
 }
 
 .name {
-  width: 140px;
+  width: var(--field-width-md);
 }
 
 .bonus {
-  width: 80px;
+  width: var(--field-width-sm);
 }
 
 .damage {
-  width: 140px;
+  width: var(--field-width-md);
 }

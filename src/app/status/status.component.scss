@@ -27,5 +27,5 @@ header {
 }
 
 .hit-dice mat-form-field {
-  width: 120px;
+  width: var(--field-width-md);
 }

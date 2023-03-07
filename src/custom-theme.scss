@@ -47,4 +47,12 @@ html {
   --gap-sm: 4px;
   --gap-md: 8px;
   --gap-lg: 16px;
+
+  --header-gap: var(--gap-md);
+  --field-gap: var(--gap-sm);
+
+  --field-width-xs: 60px;
+  --field-width-sm: 80px;
+  --field-width-md: 160px;
+  --field-width-lg: 240px;
 }

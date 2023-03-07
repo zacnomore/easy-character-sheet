@@ -8,6 +8,6 @@ section {
   flex-direction: column;
 
   mat-form-field {
-    width: 60px;
+    width: var(--field-width-xs);
   }
 }

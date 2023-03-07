@@ -10,12 +10,5 @@ import { AbilityComponent } from './ability/ability.component';
   styleUrls: ['./abilities.component.scss'],
 })
 export class AbilitiesComponent {
-  abilities = [
-    'Strength',
-    'Dexterity',
-    'Constitution',
-    'Intelligence',
-    'Wisdom',
-    'Charisma',
-  ];
+  abilities = ['Str', 'Dex', 'Con', 'Int', 'Wis', 'Cha'];
 }

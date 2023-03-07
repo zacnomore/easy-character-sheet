@@ -6,7 +6,7 @@
 label {
   display: flex;
   flex-direction: column;
-  width: 80px;
+  width: var(--field-width-xs);
 }
 
 header {

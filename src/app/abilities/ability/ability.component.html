@@ -1,6 +1,5 @@
-<header>{{ name }}</header>
 <mat-form-field>
-  <mat-label>Score</mat-label>
+  <mat-label>{{ name }}</mat-label>
   <input matInput [formControl]="scoreControl" />
   <mat-hint>{{ modifier(scoreControl.value) }}</mat-hint>
 </mat-form-field>
