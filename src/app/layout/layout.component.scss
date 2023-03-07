@@ -3,10 +3,10 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     "header     header      header"
-    "ab-sk-th   status      ."
-    "ab-sk-th   attacks     ."
-    "ab-sk-th   equipment   ."
-    "ab-sk-th   .           .";
+    "ab-sk-th   status      bg"
+    "ab-sk-th   attacks     bg"
+    "ab-sk-th   equipment   bg"
+    "ab-sk-th   .           bg";
   gap: var(--section-gap);
   padding: var(--section-gap);
 }
@@ -46,4 +46,8 @@ ecs-attacks {
 
 ecs-equipment {
   grid-area: equipment;
+}
+
+ecs-background {
+  grid-area: bg;
 }
