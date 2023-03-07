@@ -1,0 +1,8 @@
+<img [src]="imageURL" [alt]="altText" />
+<input
+  #filePicker
+  matInput
+  type="file"
+  accept="image/*"
+  (change)="updateImage()"
+/>

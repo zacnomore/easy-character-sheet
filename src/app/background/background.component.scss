@@ -7,6 +7,7 @@
     "backstory    additional  additional"
     "backstory    treasure    treasure";
   grid-template-columns: repeat(3, 1fr);
+  gap: var(--section-gap);
 }
 
 ecs-background-header {

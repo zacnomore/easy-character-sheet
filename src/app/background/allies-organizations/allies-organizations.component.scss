@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+
+  > * {
+    flex-basis: 50%;
+  }
+}
+
+mat-form-field {
+  display: block;
+  margin: var(--field-v-gap) var(--field-h-gap);
+}

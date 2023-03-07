@@ -1,9 +1,2 @@
 <header>Appearance</header>
-<img [src]="imageURL" alt="Appearance of your character" />
-<input
-  #filePicker
-  matInput
-  type="file"
-  accept="image/*"
-  (change)="updateImage()"
-/>
+<ecs-image-upload [altText]="'Appearance of your character'"></ecs-image-upload>
