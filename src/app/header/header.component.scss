@@ -18,7 +18,7 @@
 section:not(.name) {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: var(--field-h-gap);
 
   mat-form-field {
     flex: 1 1 200px;

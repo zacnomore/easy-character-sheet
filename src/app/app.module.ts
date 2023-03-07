@@ -11,7 +11,7 @@ import { LayoutComponent } from './layout/layout.component';
   providers: [
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-      useValue: { appearance: 'outline' },
+      useValue: { appearance: 'outline', subscriptSizing: 'dynamic' },
     },
   ],
   bootstrap: [AppComponent],

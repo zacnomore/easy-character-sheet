@@ -1,5 +1,5 @@
 :host {
-  padding: 0 var(--gap-lg) var(--gap-lg) var(--gap-lg);
+  padding: 0 0 var(--field-v-gap);
 }
 
 :host,
@@ -7,8 +7,4 @@ label {
   display: flex;
   flex-direction: column;
   width: var(--field-width-xs);
-}
-
-header {
-  margin-bottom: var(--gap-lg);
 }

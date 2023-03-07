@@ -49,10 +49,19 @@ html {
   --gap-lg: 16px;
 
   --header-gap: var(--gap-md);
-  --field-gap: var(--gap-sm);
+  --field-h-gap: var(--gap-sm);
+  --field-v-gap: var(--gap-md);
 
   --field-width-xs: 60px;
   --field-width-sm: 80px;
   --field-width-md: 160px;
   --field-width-lg: 240px;
+
+  --header-weight: 500;
+  --header-gap: var(--gap-md);
+}
+
+header {
+  margin-bottom: var(--header-gap);
+  font-weight: var(--header-weight);
 }
