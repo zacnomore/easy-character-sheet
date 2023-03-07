@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HeaderComponent } from './header.component';
+import { StatsHeaderComponent } from './stats-header.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('StatsHeaderComponent', () => {
+  let component: StatsHeaderComponent;
+  let fixture: ComponentFixture<StatsHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent, NoopAnimationsModule],
+      imports: [StatsHeaderComponent, NoopAnimationsModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(StatsHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

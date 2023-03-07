@@ -4,10 +4,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'ecs-header',
+  selector: 'ecs-stats-header',
   standalone: true,
   imports: [CommonModule, MatFormFieldModule, MatInputModule],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  templateUrl: './stats-header.component.html',
+  styleUrls: ['./stats-header.component.scss'],
 })
-export class HeaderComponent {}
+export class StatsHeaderComponent {}
