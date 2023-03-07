@@ -1,4 +1,16 @@
 :host {
   display: grid;
   padding: var(--section-gap);
+  grid-template-areas:
+    "header       header      header"
+    "appearance   .           .";
+  grid-template-columns: repeat(3, 1fr);
+}
+
+ecs-background-header {
+  grid-area: header;
+}
+
+ecs-appearance {
+  grid-area: appearance;
 }
