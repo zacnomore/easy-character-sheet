@@ -31,7 +31,10 @@ $easy-character-sheet-theme: mat.define-light-theme(
     )
   )
 );
+
+@include mat.icon-theme($easy-character-sheet-theme);
 @include mat.input-theme($easy-character-sheet-theme);
+@include mat.toolbar-theme($easy-character-sheet-theme);
 
 html,
 body {

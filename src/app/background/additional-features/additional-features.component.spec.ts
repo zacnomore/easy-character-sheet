@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AdditionalFeaturesComponent } from './additional-features.component';
 
 describe('AdditionalFeaturesComponent', () => {
