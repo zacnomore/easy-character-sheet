@@ -8,6 +8,8 @@ import { StatusComponent } from './status/status.component';
 import { AttacksComponent } from './attacks/attacks.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { ShortBackgroundComponent } from './short-background/short-background.component';
+import { MatButtonModule } from '@angular/material/button';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'ecs-stats',
@@ -22,8 +24,21 @@ import { ShortBackgroundComponent } from './short-background/short-background.co
     AttacksComponent,
     EquipmentComponent,
     ShortBackgroundComponent,
+    MatButtonModule,
+    HttpClientModule,
   ],
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss'],
 })
-export class StatsComponent {}
+export class StatsComponent {
+  constructor(private http: HttpClient) {}
+
+  save() {
+    console.log('test');
+    this.http
+      .post('/api/save/stats', {
+        characterName: 'Zac',
+      })
+      .subscribe(console.log);
+  }
+}
