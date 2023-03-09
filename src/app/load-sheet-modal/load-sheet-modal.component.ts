@@ -6,6 +6,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+export type LoadSheetResponse = null | undefined | number;
+
 @Component({
   selector: 'ecs-load-sheet-modal',
   standalone: true,
@@ -21,5 +23,5 @@ import { MatInputModule } from '@angular/material/input';
   styleUrls: ['./load-sheet-modal.component.scss'],
 })
 export class LoadSheetModalComponent {
-  protected idControl = new FormControl(null);
+  protected idControl = new FormControl<number | null>(null);
 }

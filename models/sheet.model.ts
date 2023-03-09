@@ -1,5 +1,8 @@
 import { Stats } from './stats.model';
 
-export interface CreateSheetRequest {
+interface Sheet {
   stats: Stats;
 }
+export type CreateSheetRequest = Sheet;
+
+export type SheetResponse = Sheet;

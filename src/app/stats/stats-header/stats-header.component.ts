@@ -4,8 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { debounceTime, first, map, takeUntil, tap } from 'rxjs';
-import { selectBasics, selectPlayerName, updateBasics } from '../stats.store';
+import { selectPlayerName, updateBasics } from '../stats.store';
 import { ObservedLifecycle } from 'src/app/utilities/lifecycle-observables';
 import { connectToStore } from 'src/app/utilities/store-connected-form';
 

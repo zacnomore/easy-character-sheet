@@ -6,7 +6,7 @@
   </mat-form-field>
 
   <mat-dialog-actions>
-    <button mat-button mat-dialog-close="idControl.value">Load</button>
+    <button mat-button [mat-dialog-close]="idControl.value">Load</button>
     <button mat-button mat-dialog-close>Cancel</button>
   </mat-dialog-actions>
 </mat-dialog-content>

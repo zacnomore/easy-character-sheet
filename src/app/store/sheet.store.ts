@@ -1,7 +1,14 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import { SheetResponse } from 'models/sheet.model';
 
 export const save = createAction('[Sheet] Save');
 export const load = createAction('[Sheet] Load');
+export const sheetReceived = createAction(
+  '[Sheet] Received',
+  props<{
+    sheet: SheetResponse;
+  }>()
+);
 
 // interface SheetState {}
 

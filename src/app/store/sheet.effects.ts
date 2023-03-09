@@ -3,12 +3,28 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { CreateSheetRequest } from 'models/sheet.model';
-import { combineLatest, exhaustMap, switchMap } from 'rxjs';
-import { selectAbilities, selectBasics } from '../stats/stats.store';
-import { load, save } from './sheet.store';
+import { CreateSheetRequest, SheetResponse } from 'models/sheet.model';
+import {
+  combineLatest,
+  exhaustMap,
+  filter,
+  from,
+  map,
+  switchMap,
+  tap,
+} from 'rxjs';
+import {
+  selectAbilities,
+  selectBasics,
+  updateAbilities,
+  updateBasics,
+} from '../stats/stats.store';
+import { load, save, sheetReceived } from './sheet.store';
 import { MatDialog } from '@angular/material/dialog';
-import { LoadSheetModalComponent } from '../load-sheet-modal/load-sheet-modal.component';
+import {
+  LoadSheetModalComponent,
+  LoadSheetResponse,
+} from '../load-sheet-modal/load-sheet-modal.component';
 
 @Injectable()
 export class SheetEffects {
@@ -44,15 +60,28 @@ export class SheetEffects {
     }
   );
 
-  load$ = createEffect(
-    () => {
-      return this.actions$.pipe(
-        ofType(load),
-        exhaustMap(() =>
-          this.dialog.open(LoadSheetModalComponent).afterClosed()
-        )
-      );
-    },
-    { dispatch: false }
-  );
+  load$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(load),
+      exhaustMap(() => this.dialog.open(LoadSheetModalComponent).afterClosed()),
+      tap((v) => console.log(v)),
+      filter((v: LoadSheetResponse): v is number => typeof v === 'number'),
+      exhaustMap((id) => this.http.get<SheetResponse>(`api/load/sheet/${id}`)),
+      tap(console.log),
+      map((sheet) => sheetReceived({ sheet }))
+    );
+  });
+
+  sheetReceived$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(sheetReceived),
+      switchMap(
+        ({
+          sheet: {
+            stats: { abilities, basics },
+          },
+        }) => from([updateBasics({ basics }), updateAbilities({ abilities })])
+      )
+    );
+  });
 }
