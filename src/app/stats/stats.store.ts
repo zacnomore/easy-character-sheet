@@ -76,7 +76,15 @@ export const selectBasics = createSelector(
   (state) => state.basics
 );
 
+export const selectPlayerName = createSelector(
+  selectBasics,
+  (basics) => basics.playerName
+);
+
 export const selectAbilities = createSelector(
   selectStatsFeature,
   (state) => state.abilities
 );
+
+export const selectAbility = (name: keyof Abilities) =>
+  createSelector(selectAbilities, (abilities) => abilities[name]);
