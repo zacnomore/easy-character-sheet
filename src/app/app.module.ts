@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { stats } from './stats/stats.store';
+import { stats, STATS_FEATURE_NAME } from './stats/stats.store';
 import { SheetEffects } from './store/sheet.effects';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -20,7 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HeaderComponent,
     HttpClientModule,
     MatDialogModule,
-    StoreModule.forRoot({ stats }, {}),
+    StoreModule.forRoot(),
+    StoreModule.forFeature(STATS_FEATURE_NAME, stats),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([SheetEffects]),
   ],

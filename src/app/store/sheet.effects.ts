@@ -4,15 +4,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { CreateSheetRequest, SheetResponse } from 'models/sheet.model';
-import {
-  combineLatest,
-  exhaustMap,
-  filter,
-  from,
-  map,
-  switchMap,
-  tap,
-} from 'rxjs';
+import { combineLatest, exhaustMap, filter, from, map, switchMap } from 'rxjs';
 import {
   selectAbilities,
   selectBasics,
@@ -64,10 +56,8 @@ export class SheetEffects {
     return this.actions$.pipe(
       ofType(load),
       exhaustMap(() => this.dialog.open(LoadSheetModalComponent).afterClosed()),
-      tap((v) => console.log(v)),
       filter((v: LoadSheetResponse): v is number => typeof v === 'number'),
       exhaustMap((id) => this.http.get<SheetResponse>(`api/load/sheet/${id}`)),
-      tap(console.log),
       map((sheet) => sheetReceived({ sheet }))
     );
   });

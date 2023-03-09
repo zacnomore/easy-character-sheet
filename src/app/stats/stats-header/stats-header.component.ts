@@ -4,7 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { selectPlayerName, updateBasics } from '../stats.store';
+import { selectCharacterName, updateBasics } from '../stats.store';
 import { ObservedLifecycle } from 'src/app/utilities/lifecycle-observables';
 import { connectToStore } from 'src/app/utilities/store-connected-form';
 
@@ -25,12 +25,12 @@ export class StatsHeaderComponent extends ObservedLifecycle implements OnInit {
     super();
   }
 
-  protected nameControl = new FormControl('', { nonNullable: true });
+  protected characterNameControl = new FormControl('', { nonNullable: true });
 
   ngOnInit(): void {
     connectToStore(
-      this.nameControl,
-      this.store.select(selectPlayerName),
+      this.characterNameControl,
+      this.store.select(selectCharacterName),
       (characterName) => updateBasics({ basics: { characterName } }),
       this.store,
       this.destroy$

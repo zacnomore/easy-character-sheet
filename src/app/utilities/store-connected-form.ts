@@ -2,7 +2,7 @@ import { FormControl } from '@angular/forms';
 import { Action, Store } from '@ngrx/store';
 import {
   debounceTime,
-  first,
+  filter,
   forkJoin,
   Observable,
   takeUntil,
@@ -26,7 +26,7 @@ export function connectToStore<T>(
 
 function prefill<T>(control: FormControl<T>, source: Observable<T>) {
   return source.pipe(
-    first(),
+    filter((value) => value !== control.value),
     tap((value) => control.setValue(value))
   );
 }
