@@ -7,7 +7,8 @@ import { SpellsComponent } from '../spells/spells.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { SaveService } from 'persistence/save.service';
+import { Store } from '@ngrx/store';
+import { save } from '../store/sheet.store';
 
 @Component({
   selector: 'ecs-pager',
@@ -26,9 +27,9 @@ import { SaveService } from 'persistence/save.service';
   styleUrls: ['./pager.component.scss'],
 })
 export class PagerComponent {
-  constructor(private saveService: SaveService) {}
+  constructor(private store: Store) {}
 
   save() {
-    this.saveService.save();
+    this.store.dispatch(save());
   }
 }

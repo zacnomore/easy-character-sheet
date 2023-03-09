@@ -7,12 +7,15 @@ export default async function handler(
   response: VercelResponse
 ) {
   const prisma = new PrismaClient();
-  const { characterName } = request.body as CreateSheetRequest;
+  const {
+    stats: { abilities, basics, skills: proficiencies },
+  } = request.body as CreateSheetRequest;
 
   prisma.sheet
     .create({
       data: {
-        characterName,
+        ...basics,
+        ...abilities,
       },
     })
     .then((createdSheet) => {

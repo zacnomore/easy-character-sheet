@@ -15,5 +15,19 @@ model Sheet {
   id              Int       @default(autoincrement()) @id
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
-  characterName   String    @db.VarChar(255)
+
+  characterName     String    @db.VarChar(255)
+  classAndLevel     String    @db.VarChar(255) 
+  background        String    @db.VarChar(255) 
+  playerName        String    @db.VarChar(255) 
+  race              String    @db.VarChar(255) 
+  alignment         String    @db.VarChar(255) 
+  experiencePoints  Int 
+  
+  strength        Int
+  dexterity       Int
+  constitution    Int
+  intelligence    Int
+  wisdom          Int
+  charisma        Int
 }

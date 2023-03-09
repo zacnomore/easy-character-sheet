@@ -69,3 +69,13 @@ header {
   margin-bottom: var(--header-gap);
   font-weight: var(--header-weight);
 }
+
+// Hide stepper
+input[type="number"] {
+  appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

@@ -1,2 +1,6 @@
 <header>Abilities</header>
-<ecs-ability *ngFor="let a of abilities" [name]="a"></ecs-ability>
+<ecs-ability
+  *ngFor="let a of abilities"
+  [name]="a[0]"
+  [abilityKey]="a[1]"
+></ecs-ability>
