@@ -20,9 +20,10 @@
 section:not(.name) {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--field-h-gap);
 
   mat-form-field {
     flex: 1 1 200px;
+    // Non-collapsing margins in flex children
+    margin: calc(var(--field-v-gap) / 2) calc(var(--field-h-gap) / 2);
   }
 }
