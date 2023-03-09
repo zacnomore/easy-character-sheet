@@ -1,8 +1,13 @@
 <mat-toolbar>
   <span>Easy Character Sheet</span>
-  <button mat-icon-button aria-label="Save" (click)="save()">
-    <mat-icon>save</mat-icon>
-  </button>
+  <span>
+    <button mat-icon-button aria-label="Load" (click)="load()">
+      <mat-icon>download</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Save" (click)="save()">
+      <mat-icon>cloud_upload</mat-icon>
+    </button>
+  </span>
 </mat-toolbar>
 <mat-tab-group>
   <mat-tab label="Stats">

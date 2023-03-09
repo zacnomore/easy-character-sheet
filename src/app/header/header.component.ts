@@ -8,10 +8,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Store } from '@ngrx/store';
-import { save } from '../store/sheet.store';
+import { load, save } from '../store/sheet.store';
 
 @Component({
-  selector: 'ecs-pager',
+  selector: 'ecs-header',
   standalone: true,
   imports: [
     CommonModule,
@@ -23,13 +23,17 @@ import { save } from '../store/sheet.store';
     MatButtonModule,
     MatIconModule,
   ],
-  templateUrl: './pager.component.html',
-  styleUrls: ['./pager.component.scss'],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
-export class PagerComponent {
+export class HeaderComponent {
   constructor(private store: Store) {}
 
   save() {
     this.store.dispatch(save());
+  }
+
+  load() {
+    this.store.dispatch(load());
   }
 }

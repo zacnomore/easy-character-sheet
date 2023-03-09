@@ -1,21 +1,25 @@
+/* eslint-disable @ngrx/avoid-combining-selectors */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { CreateSheetRequest } from 'models/sheet.model';
-import { combineLatest, exhaustAll, exhaustMap, switchMap } from 'rxjs';
+import { combineLatest, exhaustMap, switchMap } from 'rxjs';
 import { selectAbilities, selectBasics } from '../stats/stats.store';
-import { save } from './sheet.store';
+import { load, save } from './sheet.store';
+import { MatDialog } from '@angular/material/dialog';
+import { LoadSheetModalComponent } from '../load-sheet-modal/load-sheet-modal.component';
 
 @Injectable()
 export class SheetEffects {
   constructor(
     private actions$: Actions,
     private store: Store,
-    private http: HttpClient
+    private http: HttpClient,
+    private dialog: MatDialog
   ) {}
 
-  loadMovies$ = createEffect(
+  save$ = createEffect(
     () => {
       return this.actions$.pipe(
         ofType(save),
@@ -38,5 +42,17 @@ export class SheetEffects {
     {
       dispatch: false,
     }
+  );
+
+  load$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(load),
+        exhaustMap(() =>
+          this.dialog.open(LoadSheetModalComponent).afterClosed()
+        )
+      );
+    },
+    { dispatch: false }
   );
 }
