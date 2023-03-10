@@ -67,4 +67,5 @@ model Sheet {
   stealthProficient         Boolean
   survivalValue             Int
   survivalProficient        Boolean
+
 }

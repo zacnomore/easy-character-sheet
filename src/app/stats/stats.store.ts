@@ -144,6 +144,33 @@ export const selectCharacterName = createSelector(
   (basics) => basics.characterName
 );
 
+export const selectClassAndLevel = createSelector(
+  selectBasics,
+  (basics) => basics.classAndLevel
+);
+
+export const selectBackground = createSelector(
+  selectBasics,
+  (basics) => basics.background
+);
+
+export const selectPlayerName = createSelector(
+  selectBasics,
+  (basics) => basics.playerName
+);
+
+export const selectRace = createSelector(selectBasics, (basics) => basics.race);
+
+export const selectAlignment = createSelector(
+  selectBasics,
+  (basics) => basics.alignment
+);
+
+export const selectExperiencePoints = createSelector(
+  selectBasics,
+  (basics) => basics.experiencePoints
+);
+
 export const selectAbilities = createSelector(
   selectStatsFeature,
   (state) => state.abilities

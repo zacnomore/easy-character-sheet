@@ -8,31 +8,31 @@
 <section>
   <mat-form-field>
     <mat-label>Class & Level</mat-label>
-    <input matInput />
+    <input matInput [formControl]="classAndLevelControl" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Background</mat-label>
-    <input matInput />
+    <input matInput [formControl]="backgroundControl" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Player Name</mat-label>
-    <input matInput />
+    <input matInput [formControl]="playerNameControl" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Race</mat-label>
-    <input matInput />
+    <input matInput [formControl]="raceControl" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Alignment</mat-label>
-    <input matInput />
+    <input matInput [formControl]="alignmentControl" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Experience Points</mat-label>
-    <input type="number" matInput />
+    <input type="number" matInput [formControl]="experienceControl" />
   </mat-form-field>
 </section>
