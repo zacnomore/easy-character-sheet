@@ -30,4 +30,41 @@ model Sheet {
   intelligence    Int
   wisdom          Int
   charisma        Int
+
+  acrobaticsValue           Int
+  acrobaticsProficient      Boolean
+  animalHandlingValue       Int
+  animalHandlingProficient  Boolean
+  arcanaValue               Int
+  arcanaProficient          Boolean
+  athleticsValue            Int
+  athleticsProficient       Boolean
+  deceptionValue            Int
+  deceptionProficient       Boolean
+  historyValue              Int
+  historyProficient         Boolean
+  insightValue              Int
+  insightProficient         Boolean
+  intimidationValue         Int
+  intimidationProficient    Boolean
+  investigationValue        Int
+  investigationProficient   Boolean
+  medicineValue             Int
+  medicineProficient        Boolean
+  natureValue               Int
+  natureProficient          Boolean
+  perceptionValue           Int
+  perceptionProficient      Boolean
+  performanceValue          Int
+  performanceProficient     Boolean
+  persuasionValue           Int
+  persuasionProficient      Boolean
+  religionValue             Int
+  religionProficient        Boolean
+  sleightOfHandValue        Int
+  sleightOfHandProficient   Boolean
+  stealthValue              Int
+  stealthProficient         Boolean
+  survivalValue             Int
+  survivalProficient        Boolean
 }

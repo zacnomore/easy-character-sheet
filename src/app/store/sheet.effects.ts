@@ -8,8 +8,10 @@ import { combineLatest, exhaustMap, filter, from, map, switchMap } from 'rxjs';
 import {
   selectAbilities,
   selectBasics,
+  selectSkills,
   updateAbilities,
   updateBasics,
+  updateSkills,
 } from '../stats/stats.store';
 import { load, save, sheetReceived } from './sheet.store';
 import { MatDialog } from '@angular/material/dialog';
@@ -35,15 +37,17 @@ export class SheetEffects {
           combineLatest([
             this.store.select(selectBasics),
             this.store.select(selectAbilities),
+            this.store.select(selectSkills),
           ])
         ),
-        exhaustMap(([basics, abilities]) =>
+        exhaustMap(([basics, abilities, skills]) =>
           this.http.post('/api/save/sheet', {
             stats: {
               basics,
               abilities,
+              skills,
             },
-          } as CreateSheetRequest)
+          } satisfies CreateSheetRequest)
         )
       );
     },
@@ -68,9 +72,14 @@ export class SheetEffects {
       switchMap(
         ({
           sheet: {
-            stats: { abilities, basics },
+            stats: { abilities, basics, skills },
           },
-        }) => from([updateBasics({ basics }), updateAbilities({ abilities })])
+        }) =>
+          from([
+            updateBasics({ basics }),
+            updateAbilities({ abilities }),
+            updateSkills({ skills }),
+          ])
       )
     );
   });

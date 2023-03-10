@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SkillComponent } from './skill/skill.component';
+import { Skills } from 'models/stats.model';
 
 @Component({
   selector: 'ecs-skills',
@@ -10,24 +11,24 @@ import { SkillComponent } from './skill/skill.component';
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent {
-  skills = [
-    { name: 'Acrobatics', type: 'Dex' },
-    { name: 'Animal Handling', type: 'Wis' },
-    { name: 'Arcana', type: 'Int' },
-    { name: 'Athletics', type: 'Str' },
-    { name: 'Deception', type: 'Cha' },
-    { name: 'History', type: 'Int' },
-    { name: 'Insight', type: 'Wis' },
-    { name: 'Intimidation', type: 'Cha' },
-    { name: 'Investigation', type: 'Int' },
-    { name: 'Medicine', type: 'Wis' },
-    { name: 'Nature', type: 'Int' },
-    { name: 'Perception', type: 'Wis' },
-    { name: 'Performance', type: 'Cha' },
-    { name: 'Persuasion', type: 'Cha' },
-    { name: 'Religion', type: 'Int' },
-    { name: 'Sleight of Hand', type: 'Dex' },
-    { name: 'Stealth', type: 'Dex' },
-    { name: 'Survival', type: 'Wis' },
+  skills: { key: keyof Skills; name: string; type: string }[] = [
+    { key: 'acrobatics', name: 'Acrobatics', type: 'Dex' },
+    { key: 'animalHandling', name: 'Animal Handling', type: 'Wis' },
+    { key: 'arcana', name: 'Arcana', type: 'Int' },
+    { key: 'athletics', name: 'Athletics', type: 'Str' },
+    { key: 'deception', name: 'Deception', type: 'Cha' },
+    { key: 'history', name: 'History', type: 'Int' },
+    { key: 'insight', name: 'Insight', type: 'Wis' },
+    { key: 'intimidation', name: 'Intimidation', type: 'Cha' },
+    { key: 'investigation', name: 'Investigation', type: 'Int' },
+    { key: 'medicine', name: 'Medicine', type: 'Wis' },
+    { key: 'nature', name: 'Nature', type: 'Int' },
+    { key: 'perception', name: 'Perception', type: 'Wis' },
+    { key: 'performance', name: 'Performance', type: 'Cha' },
+    { key: 'persuasion', name: 'Persuasion', type: 'Cha' },
+    { key: 'religion', name: 'Religion', type: 'Int' },
+    { key: 'sleightOfHand', name: 'Sleight of Hand', type: 'Dex' },
+    { key: 'stealth', name: 'Stealth', type: 'Dex' },
+    { key: 'survival', name: 'Survival', type: 'Wis' },
   ];
 }
