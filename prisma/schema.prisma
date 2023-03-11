@@ -59,10 +59,6 @@ model Sheet {
   stealth         Boolean
   survival        Boolean
 
-  // armor       Int
-  // initiative  Int
-  // speed       Int
-
   // currentHitPoints    Int
   // temporaryHitPoints  Int
 

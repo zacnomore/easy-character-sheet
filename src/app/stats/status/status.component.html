@@ -1,18 +1,18 @@
-<section class="ais form-row">
-  <mat-form-field>
-    <mat-label>Armor</mat-label>
-    <input type="text" matInput />
-  </mat-form-field>
+<section class="ais">
+  <label>
+    <span>Armor</span>
+    <output>{{ armor$ | async }}</output>
+  </label>
 
-  <mat-form-field>
-    <mat-label>Initiative</mat-label>
-    <input type="text" matInput />
-  </mat-form-field>
+  <label>
+    <span>Initiative</span>
+    <output>{{ initiative$ | async }}</output>
+  </label>
 
-  <mat-form-field>
-    <mat-label>Speed</mat-label>
-    <input type="text" matInput />
-  </mat-form-field>
+  <label>
+    <span>Speed</span>
+    <output>{{ speed$ | async }}</output>
+  </label>
 </section>
 
 <section class="form-row">

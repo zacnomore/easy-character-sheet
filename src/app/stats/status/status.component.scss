@@ -9,6 +9,20 @@ section {
   margin: var(--section-gap) 0;
 }
 
+.ais {
+  display: flex;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 3);
+
+    span {
+      font-weight: var(--header-weight);
+    }
+  }
+}
+
 .form-row {
   display: flex;
   align-items: baseline;

@@ -220,3 +220,12 @@ export const selectSkillValues = createSelector(
 
 export const selectSkillValue = (name: keyof Skills) =>
   createSelector(selectSkillValues, (skills) => skills[name]);
+
+// TODO
+export const selectArmor = createSelector(
+  selectAbilityModifier('dexterity'),
+  (dexMod) => dexMod + 10
+);
+
+// TODO
+export const selectInitiative = selectAbilityModifier('dexterity');
