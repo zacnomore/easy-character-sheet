@@ -12,6 +12,7 @@ import {
   selectSkillProficiencies,
   updateAbilities,
   updateBasics,
+  updateProficiencyBonus,
   updateSkills,
 } from '../stats/stats.store';
 import { load, save, sheetReceived } from './sheet.store';
@@ -75,11 +76,12 @@ export class SheetEffects {
       switchMap(
         ({
           sheet: {
-            stats: { abilities, basics, skills },
+            stats: { abilities, proficiencyBonus, basics, skills },
           },
         }) =>
           from([
             updateBasics({ basics }),
+            updateProficiencyBonus({ bonus: proficiencyBonus }),
             updateAbilities({ abilities }),
             updateSkills({ skills }),
           ])

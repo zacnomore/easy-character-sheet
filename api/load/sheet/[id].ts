@@ -30,6 +30,8 @@ export default async function handler(
         playerName,
         race,
 
+        proficiencyBonus,
+
         acrobatics,
         animalHandling,
         arcana,
@@ -66,6 +68,7 @@ export default async function handler(
               strength,
               wisdom,
             },
+            proficiencyBonus,
             basics: {
               alignment,
               background,

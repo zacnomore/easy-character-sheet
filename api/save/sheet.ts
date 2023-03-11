@@ -12,13 +12,14 @@ export default async function handler(
 ) {
   const prisma = new PrismaClient();
   const {
-    stats: { abilities, basics, skills },
+    stats: { abilities, proficiencyBonus, basics, skills },
   } = request.body as CreateSheetRequest;
 
   prisma.sheet
     .create({
       data: {
         ...basics,
+        proficiencyBonus,
         ...abilities,
         ...skills,
       },
