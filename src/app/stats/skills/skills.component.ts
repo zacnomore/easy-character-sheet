@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SkillComponent } from './skill/skill.component';
-import { Skills } from 'models/stats.model';
+import { Abilities, Skills } from 'models/stats.model';
+import { getName, getType } from 'models/skills.map';
 
 @Component({
   selector: 'ecs-skills',
@@ -11,24 +12,30 @@ import { Skills } from 'models/stats.model';
   styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent {
-  skills: { key: keyof Skills; name: string; type: string }[] = [
-    { key: 'acrobatics', name: 'Acrobatics', type: 'Dex' },
-    { key: 'animalHandling', name: 'Animal Handling', type: 'Wis' },
-    { key: 'arcana', name: 'Arcana', type: 'Int' },
-    { key: 'athletics', name: 'Athletics', type: 'Str' },
-    { key: 'deception', name: 'Deception', type: 'Cha' },
-    { key: 'history', name: 'History', type: 'Int' },
-    { key: 'insight', name: 'Insight', type: 'Wis' },
-    { key: 'intimidation', name: 'Intimidation', type: 'Cha' },
-    { key: 'investigation', name: 'Investigation', type: 'Int' },
-    { key: 'medicine', name: 'Medicine', type: 'Wis' },
-    { key: 'nature', name: 'Nature', type: 'Int' },
-    { key: 'perception', name: 'Perception', type: 'Wis' },
-    { key: 'performance', name: 'Performance', type: 'Cha' },
-    { key: 'persuasion', name: 'Persuasion', type: 'Cha' },
-    { key: 'religion', name: 'Religion', type: 'Int' },
-    { key: 'sleightOfHand', name: 'Sleight of Hand', type: 'Dex' },
-    { key: 'stealth', name: 'Stealth', type: 'Dex' },
-    { key: 'survival', name: 'Survival', type: 'Wis' },
-  ];
+  skills: { key: keyof Skills; name: string; type: keyof Abilities }[] = (
+    [
+      'acrobatics',
+      'animalHandling',
+      'arcana',
+      'athletics',
+      'deception',
+      'history',
+      'insight',
+      'intimidation',
+      'investigation',
+      'medicine',
+      'nature',
+      'perception',
+      'performance',
+      'persuasion',
+      'religion',
+      'sleightOfHand',
+      'stealth',
+      'survival',
+    ] as (keyof Skills)[]
+  ).map((key) => ({
+    key,
+    name: getName(key),
+    type: getType(key),
+  }));
 }

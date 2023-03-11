@@ -31,41 +31,55 @@ model Sheet {
   wisdom          Int
   charisma        Int
 
-  acrobaticsValue           Int
-  acrobaticsProficient      Boolean
-  animalHandlingValue       Int
-  animalHandlingProficient  Boolean
-  arcanaValue               Int
-  arcanaProficient          Boolean
-  athleticsValue            Int
-  athleticsProficient       Boolean
-  deceptionValue            Int
-  deceptionProficient       Boolean
-  historyValue              Int
-  historyProficient         Boolean
-  insightValue              Int
-  insightProficient         Boolean
-  intimidationValue         Int
-  intimidationProficient    Boolean
-  investigationValue        Int
-  investigationProficient   Boolean
-  medicineValue             Int
-  medicineProficient        Boolean
-  natureValue               Int
-  natureProficient          Boolean
-  perceptionValue           Int
-  perceptionProficient      Boolean
-  performanceValue          Int
-  performanceProficient     Boolean
-  persuasionValue           Int
-  persuasionProficient      Boolean
-  religionValue             Int
-  religionProficient        Boolean
-  sleightOfHandValue        Int
-  sleightOfHandProficient   Boolean
-  stealthValue              Int
-  stealthProficient         Boolean
-  survivalValue             Int
-  survivalProficient        Boolean
+  // savingThrowStrProficient  Boolean
+  // savingThrowDexProficient  Boolean
+  // savingThrowConProficient  Boolean
+  // savingThrowIntProficient  Boolean
+  // savingThrowWisProficient  Boolean
+  // savingThrowChaProficient  Boolean
 
+  acrobatics      Boolean
+  animalHandling  Boolean
+  arcana          Boolean
+  athletics       Boolean
+  deception       Boolean
+  history         Boolean
+  insight         Boolean
+  intimidation    Boolean
+  investigation   Boolean
+  medicine        Boolean
+  nature          Boolean
+  perception      Boolean
+  performance     Boolean
+  persuasion      Boolean
+  religion        Boolean
+  sleightOfHand   Boolean
+  stealth         Boolean
+  survival        Boolean
+
+  // armor       Int
+  // initiative  Int
+  // speed       Int
+
+  // currentHitPoints    Int
+  // temporaryHitPoints  Int
+
+  // remainingHitDice  Int
+  // totalHitDice      Int
+
+  // deathSaveSuccesses  Int
+  // deathSaveFailures   Int
+
+  // copperPieces    Int
+  // silverPieces    Int
+  // electrumPieces  Int
+  // goldPieces      Int
+  // platinumPieces  Int
+
+  // equipment           String  @db.VarChar(1023)
+
+  // personalityTraits   String  @db.VarChar(1023)
+  // ideals              String  @db.VarChar(255)
+  // bonds               String  @db.VarChar(255)
+  // featuresAndTraits   String  @db.VarChar(1023)
 }

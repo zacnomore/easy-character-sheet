@@ -15,9 +15,14 @@
   display: grid;
   grid-area: ab-sk-th;
   grid-template-areas:
-    "abilities skills skills"
-    "abilities throws throws";
+    ".         proficiency  proficiency"
+    "abilities skills       skills"
+    "abilities throws       throws";
   gap: var(--section-gap);
+}
+
+ecs-proficiency-bonus {
+  grid-area: proficiency;
 }
 
 ecs-abilities {

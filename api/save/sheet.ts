@@ -15,19 +15,12 @@ export default async function handler(
     stats: { abilities, basics, skills },
   } = request.body as CreateSheetRequest;
 
-  const flatSkills: FlatSkills = Object.fromEntries(
-    Object.entries(skills).flatMap(([key, { proficient, value }]) => [
-      [`${key}Proficient`, proficient],
-      [`${key}Value`, value],
-    ])
-  ) as unknown as FlatSkills;
-
   prisma.sheet
     .create({
       data: {
         ...basics,
         ...abilities,
-        ...flatSkills,
+        ...skills,
       },
     })
     .then((createdSheet) => {

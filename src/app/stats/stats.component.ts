@@ -8,6 +8,7 @@ import { StatusComponent } from './status/status.component';
 import { AttacksComponent } from './attacks/attacks.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { ShortBackgroundComponent } from './short-background/short-background.component';
+import { ProficiencyBonusComponent } from './proficiency-bonus/proficiency-bonus.component';
 
 @Component({
   selector: 'ecs-stats',
@@ -15,6 +16,7 @@ import { ShortBackgroundComponent } from './short-background/short-background.co
   imports: [
     CommonModule,
     StatsHeaderComponent,
+    ProficiencyBonusComponent,
     AbilitiesComponent,
     SkillsComponent,
     SavingThrowsComponent,

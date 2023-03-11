@@ -8,7 +8,8 @@ import { combineLatest, exhaustMap, filter, from, map, switchMap } from 'rxjs';
 import {
   selectAbilities,
   selectBasics,
-  selectSkills,
+  selectProficiencyBonus,
+  selectSkillProficiencies,
   updateAbilities,
   updateBasics,
   updateSkills,
@@ -36,14 +37,16 @@ export class SheetEffects {
         switchMap(() =>
           combineLatest([
             this.store.select(selectBasics),
+            this.store.select(selectProficiencyBonus),
             this.store.select(selectAbilities),
-            this.store.select(selectSkills),
+            this.store.select(selectSkillProficiencies),
           ])
         ),
-        exhaustMap(([basics, abilities, skills]) =>
+        exhaustMap(([basics, proficiencyBonus, abilities, skills]) =>
           this.http.post('/api/save/sheet', {
             stats: {
               basics,
+              proficiencyBonus,
               abilities,
               skills,
             },

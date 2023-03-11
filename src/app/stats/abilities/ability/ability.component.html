@@ -1,5 +1,5 @@
 <mat-form-field>
   <mat-label>{{ name }}</mat-label>
   <input type="number" matInput [formControl]="scoreControl" />
-  <mat-hint>{{ modifier(scoreControl.value) }}</mat-hint>
+  <mat-hint>{{ modifier$ | async }}</mat-hint>
 </mat-form-field>

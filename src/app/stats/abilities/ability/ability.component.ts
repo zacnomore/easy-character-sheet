@@ -5,9 +5,14 @@ import { MatInputModule } from '@angular/material/input';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Stats } from 'models/stats.model';
 import { Store } from '@ngrx/store';
-import { selectAbility, updateAbilities } from '../../stats.store';
+import {
+  selectAbility,
+  selectAbilityModifier,
+  updateAbilities,
+} from '../../stats.store';
 import { ObservedLifecycle } from 'src/app/utilities/lifecycle-observables';
 import { connectToStore } from 'src/app/utilities/store-connected-form';
+import { EMPTY, Observable } from 'rxjs';
 
 @Component({
   selector: 'ecs-ability',
@@ -32,12 +37,10 @@ export class AbilityComponent
   @Input() name = '';
   @Input() abilityKey!: keyof Stats['abilities'];
   protected scoreControl = new FormControl(10, { nonNullable: true });
-
-  modifier(score: number) {
-    return Math.floor((score - 10) / 2);
-  }
+  protected modifier$: Observable<number> = EMPTY;
 
   ngOnInit(): void {
+    this.modifier$ = this.store.select(selectAbilityModifier(this.abilityKey));
     connectToStore(
       this.scoreControl,
       this.store.select(selectAbility(this.abilityKey)),

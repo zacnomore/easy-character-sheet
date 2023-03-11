@@ -1,5 +1,6 @@
 export interface Stats {
   basics: Basics;
+  proficiencyBonus: number;
   abilities: Abilities;
   skills: Skills;
 }
@@ -24,27 +25,22 @@ export interface Abilities {
 }
 
 export interface Skills {
-  acrobatics: Skill;
-  animalHandling: Skill;
-  arcana: Skill;
-  athletics: Skill;
-  deception: Skill;
-  history: Skill;
-  insight: Skill;
-  intimidation: Skill;
-  investigation: Skill;
-  medicine: Skill;
-  nature: Skill;
-  perception: Skill;
-  performance: Skill;
-  persuasion: Skill;
-  religion: Skill;
-  sleightOfHand: Skill;
-  stealth: Skill;
-  survival: Skill;
-}
-
-export interface Skill {
-  value: number;
-  proficient: boolean;
+  acrobatics: boolean;
+  animalHandling: boolean;
+  arcana: boolean;
+  athletics: boolean;
+  deception: boolean;
+  history: boolean;
+  insight: boolean;
+  intimidation: boolean;
+  investigation: boolean;
+  medicine: boolean;
+  nature: boolean;
+  perception: boolean;
+  performance: boolean;
+  persuasion: boolean;
+  religion: boolean;
+  sleightOfHand: boolean;
+  stealth: boolean;
+  survival: boolean;
 }

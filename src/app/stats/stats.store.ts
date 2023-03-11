@@ -6,12 +6,18 @@ import {
   on,
   props,
 } from '@ngrx/store';
+import { getType } from 'models/skills.map';
 
-import { Abilities, Basics, Skills, Skill } from 'models/stats.model';
+import { Abilities, Basics, Skills } from 'models/stats.model';
 
 export const updateBasics = createAction(
   '[Stats] Update Basics',
   props<{ basics: Partial<Basics> }>()
+);
+
+export const updateProficiencyBonus = createAction(
+  '[Stats] Update Proficiency Bonus',
+  props<{ bonus: number }>()
 );
 
 export const updateAbilities = createAction(
@@ -24,13 +30,9 @@ export const updateSkills = createAction(
   props<{ skills: Partial<Skills> }>()
 );
 
-export const updateSkill = createAction(
-  '[Stats] Update Skill',
-  props<{ skill: { key: keyof Skills; value: Partial<Skill> } }>()
-);
-
 interface StatsState {
   basics: Basics;
+  proficiencyBonus: number;
   abilities: Abilities;
   skills: Skills;
 }
@@ -45,6 +47,7 @@ const initialState: StatsState = {
     playerName: '',
     race: '',
   },
+  proficiencyBonus: 0,
   abilities: {
     charisma: 10,
     constitution: 10,
@@ -53,34 +56,26 @@ const initialState: StatsState = {
     strength: 10,
     wisdom: 10,
   },
-  skills: Object.fromEntries(
-    (<const>[
-      'acrobatics',
-      'animalHandling',
-      'arcana',
-      'athletics',
-      'deception',
-      'history',
-      'insight',
-      'intimidation',
-      'investigation',
-      'medicine',
-      'nature',
-      'perception',
-      'performance',
-      'persuasion',
-      'religion',
-      'sleightOfHand',
-      'stealth',
-      'survival',
-    ]).map((k) => [
-      k,
-      {
-        value: 0,
-        proficient: false,
-      } as Skill,
-    ])
-  ) as unknown as Skills,
+  skills: {
+    acrobatics: false,
+    animalHandling: false,
+    arcana: false,
+    athletics: false,
+    deception: false,
+    history: false,
+    insight: false,
+    intimidation: false,
+    investigation: false,
+    medicine: false,
+    nature: false,
+    perception: false,
+    performance: false,
+    persuasion: false,
+    religion: false,
+    sleightOfHand: false,
+    stealth: false,
+    survival: false,
+  },
 };
 export const stats = createReducer<StatsState>(
   initialState,
@@ -95,25 +90,19 @@ export const stats = createReducer<StatsState>(
     })
   ),
   on(
+    updateProficiencyBonus,
+    (state, { bonus }): StatsState => ({
+      ...state,
+      proficiencyBonus: bonus,
+    })
+  ),
+  on(
     updateAbilities,
     (state, { abilities }): StatsState => ({
       ...state,
       abilities: {
         ...state.abilities,
         ...abilities,
-      },
-    })
-  ),
-  on(
-    updateSkill,
-    (state, { skill: { key, value } }): StatsState => ({
-      ...state,
-      skills: {
-        ...state.skills,
-        [key]: {
-          ...state.skills[key],
-          ...value,
-        },
       },
     })
   ),
@@ -137,6 +126,11 @@ const selectStatsFeature =
 export const selectBasics = createSelector(
   selectStatsFeature,
   (state) => state.basics
+);
+
+export const selectProficiencyBonus = createSelector(
+  selectStatsFeature,
+  (state) => state.proficiencyBonus
 );
 
 export const selectCharacterName = createSelector(
@@ -179,16 +173,50 @@ export const selectAbilities = createSelector(
 export const selectAbility = (name: keyof Abilities) =>
   createSelector(selectAbilities, (abilities) => abilities[name]);
 
-export const selectSkills = createSelector(
+const calculateModifier = (score: number) => Math.floor((score - 10) / 2);
+
+export const selectAbilityModifiers = createSelector(
+  selectAbilities,
+  (abilities) =>
+    Object.fromEntries(
+      Object.entries(abilities).map(([key, value]) => [
+        key,
+        calculateModifier(value),
+      ])
+    )
+);
+
+export const selectAbilityModifier = (name: keyof Abilities) =>
+  createSelector(selectAbility(name), (score) => calculateModifier(score));
+
+export const selectSkillProficiencies = createSelector(
   selectStatsFeature,
   (state) => state.skills
 );
 
-export const selectSkill = (name: keyof Skills) =>
-  createSelector(selectSkills, (skills) => skills[name]);
+export const selectSkillProficiency = (key: keyof Skills) =>
+  createSelector(selectSkillProficiencies, (skills) => skills[key]);
+
+const calculateSkill = (
+  modifier: number,
+  proficiencyBonus: number,
+  proficient: boolean
+) => modifier + Number(proficient) * proficiencyBonus;
+
+export const selectSkillValues = createSelector(
+  selectSkillProficiencies,
+  selectAbilityModifiers,
+  selectProficiencyBonus,
+  (skills, modifiers, bonus) =>
+    Object.fromEntries(
+      (Object.entries(skills) as [keyof Skills, boolean][]).map(
+        ([key, proficient]) => [
+          key,
+          calculateSkill(modifiers[getType(key)], bonus, proficient),
+        ]
+      )
+    )
+);
 
 export const selectSkillValue = (name: keyof Skills) =>
-  createSelector(selectSkill(name), (skill) => skill.value);
-
-export const selectSkillProficiency = (name: keyof Skills) =>
-  createSelector(selectSkill(name), (skills) => skills.proficient);
+  createSelector(selectSkillValues, (skills) => skills[name]);

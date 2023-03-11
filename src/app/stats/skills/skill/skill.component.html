@@ -1,8 +1,5 @@
 <mat-checkbox [formControl]="proficientControl"></mat-checkbox>
 
-<mat-form-field>
-  <mat-label>{{ name }}</mat-label>
-  <input type="number" matInput [formControl]="valueControl" />
-</mat-form-field>
+<output>{{ value$ | async }}</output>
 
 <span>({{ type }})</span>
