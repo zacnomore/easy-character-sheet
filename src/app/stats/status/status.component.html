@@ -19,27 +19,27 @@
   <header>Hit Points</header>
   <mat-form-field>
     <mat-label>Current</mat-label>
-    <input type="text" matInput />
+    <input type="number" matInput [formControl]="currentHitPointsControl" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Temporary</mat-label>
-    <input type="text" matInput />
+    <input type="number" matInput [formControl]="tempHitPointsControl" />
   </mat-form-field>
 </section>
 
-<section>
+<section class="hd-ds">
   <div class="hit-dice">
     <header>Hit Dice</header>
     <mat-form-field>
       <mat-label>Remaining</mat-label>
-      <input type="text" matInput />
+      <input type="number" matInput [formControl]="remainingHitDiceControl" />
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Total</mat-label>
-      <input type="text" matInput />
-    </mat-form-field>
+    <label>
+      <span>Total Hit Dice</span>
+      <output>{{ totalHitDice$ | async }}</output>
+    </label>
   </div>
 
   <div class="death-saves">

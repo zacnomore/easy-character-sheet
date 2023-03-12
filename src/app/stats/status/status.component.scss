@@ -23,6 +23,14 @@ section {
   }
 }
 
+.hd-ds {
+  gap: var(--field-h-gap);
+
+  > * {
+    width: calc(50% - (var(--field-h-gap) / 2));
+  }
+}
+
 .form-row {
   display: flex;
   align-items: baseline;
@@ -39,7 +47,18 @@ section {
   }
 }
 
-.hit-dice mat-form-field {
-  width: var(--field-width-md);
-  margin-bottom: var(--field-v-gap);
+.hit-dice {
+  mat-form-field {
+    width: 100%;
+    margin-bottom: var(--field-v-gap);
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      font-weight: var(--header-weight);
+    }
+  }
 }

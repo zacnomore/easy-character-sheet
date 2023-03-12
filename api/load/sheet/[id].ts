@@ -32,6 +32,11 @@ export default async function handler(
 
         proficiencyBonus,
 
+        currentHitPoints,
+        temporaryHitPoints,
+
+        remainingHitDice,
+
         acrobatics,
         animalHandling,
         arcana,
@@ -69,6 +74,12 @@ export default async function handler(
               wisdom,
             },
             proficiencyBonus,
+
+            currentHitPoints,
+            temporaryHitPoints,
+
+            remainingHitDice,
+
             basics: {
               alignment,
               background,

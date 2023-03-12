@@ -8,12 +8,18 @@ import { combineLatest, exhaustMap, filter, from, map, switchMap } from 'rxjs';
 import {
   selectAbilities,
   selectBasics,
+  selectCurrentHitPoints,
   selectProficiencyBonus,
+  selectRemainingHitDice,
   selectSkillProficiencies,
+  selectTempHitPoints,
   updateAbilities,
   updateBasics,
+  updateCurrentHitPoints,
   updateProficiencyBonus,
+  updateRemainingHitDice,
   updateSkills,
+  updateTempHitPoints,
 } from '../stats/stats.store';
 import { load, save, sheetReceived } from './sheet.store';
 import { MatDialog } from '@angular/material/dialog';
@@ -39,19 +45,34 @@ export class SheetEffects {
           combineLatest([
             this.store.select(selectBasics),
             this.store.select(selectProficiencyBonus),
+            this.store.select(selectCurrentHitPoints),
+            this.store.select(selectTempHitPoints),
+            this.store.select(selectRemainingHitDice),
             this.store.select(selectAbilities),
             this.store.select(selectSkillProficiencies),
           ])
         ),
-        exhaustMap(([basics, proficiencyBonus, abilities, skills]) =>
-          this.http.post('/api/save/sheet', {
-            stats: {
-              basics,
-              proficiencyBonus,
-              abilities,
-              skills,
-            },
-          } satisfies CreateSheetRequest)
+        exhaustMap(
+          ([
+            basics,
+            proficiencyBonus,
+            currentHitPoints,
+            temporaryHitPoints,
+            remainingHitDice,
+            abilities,
+            skills,
+          ]) =>
+            this.http.post('/api/save/sheet', {
+              stats: {
+                basics,
+                proficiencyBonus,
+                currentHitPoints,
+                temporaryHitPoints,
+                remainingHitDice,
+                abilities,
+                skills,
+              },
+            } satisfies CreateSheetRequest)
         )
       );
     },
@@ -76,12 +97,23 @@ export class SheetEffects {
       switchMap(
         ({
           sheet: {
-            stats: { abilities, proficiencyBonus, basics, skills },
+            stats: {
+              abilities,
+              proficiencyBonus,
+              currentHitPoints,
+              remainingHitDice,
+              temporaryHitPoints,
+              basics,
+              skills,
+            },
           },
         }) =>
           from([
             updateBasics({ basics }),
             updateProficiencyBonus({ bonus: proficiencyBonus }),
+            updateCurrentHitPoints({ currentHitPoints }),
+            updateRemainingHitDice({ remainingHitDice }),
+            updateTempHitPoints({ temporaryHitPoints }),
             updateAbilities({ abilities }),
             updateSkills({ skills }),
           ])

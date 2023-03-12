@@ -12,7 +12,19 @@ export default async function handler(
 ) {
   const prisma = new PrismaClient();
   const {
-    stats: { abilities, proficiencyBonus, basics, skills },
+    stats: {
+      abilities,
+
+      proficiencyBonus,
+
+      currentHitPoints,
+      temporaryHitPoints,
+
+      remainingHitDice,
+
+      basics,
+      skills,
+    },
   } = request.body as CreateSheetRequest;
 
   prisma.sheet
@@ -20,6 +32,9 @@ export default async function handler(
       data: {
         ...basics,
         proficiencyBonus,
+        currentHitPoints,
+        temporaryHitPoints,
+        remainingHitDice,
         ...abilities,
         ...skills,
       },

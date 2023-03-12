@@ -59,11 +59,10 @@ model Sheet {
   stealth         Boolean
   survival        Boolean
 
-  // currentHitPoints    Int
-  // temporaryHitPoints  Int
+  currentHitPoints    Int
+  temporaryHitPoints  Int
 
-  // remainingHitDice  Int
-  // totalHitDice      Int
+  remainingHitDice  Int
 
   // deathSaveSuccesses  Int
   // deathSaveFailures   Int

@@ -20,6 +20,21 @@ export const updateProficiencyBonus = createAction(
   props<{ bonus: number }>()
 );
 
+export const updateCurrentHitPoints = createAction(
+  '[Stats] Update Current Hit Points',
+  props<{ currentHitPoints: number }>()
+);
+
+export const updateTempHitPoints = createAction(
+  '[Stats] Update Temporary Hit Points',
+  props<{ temporaryHitPoints: number }>()
+);
+
+export const updateRemainingHitDice = createAction(
+  '[Stats] Update Remaining Hit Dice',
+  props<{ remainingHitDice: number }>()
+);
+
 export const updateAbilities = createAction(
   '[Stats] Update Abilities',
   props<{ abilities: Partial<Abilities> }>()
@@ -33,6 +48,9 @@ export const updateSkills = createAction(
 interface StatsState {
   basics: Basics;
   proficiencyBonus: number;
+  currentHitPoints: number;
+  temporaryHitPoints: number;
+  remainingHitDice: number;
   abilities: Abilities;
   skills: Skills;
 }
@@ -48,6 +66,9 @@ const initialState: StatsState = {
     race: '',
   },
   proficiencyBonus: 0,
+  currentHitPoints: 0,
+  temporaryHitPoints: 0,
+  remainingHitDice: 0,
   abilities: {
     charisma: 10,
     constitution: 10,
@@ -97,6 +118,27 @@ export const stats = createReducer<StatsState>(
     })
   ),
   on(
+    updateCurrentHitPoints,
+    (state, { currentHitPoints }): StatsState => ({
+      ...state,
+      currentHitPoints,
+    })
+  ),
+  on(
+    updateTempHitPoints,
+    (state, { temporaryHitPoints }): StatsState => ({
+      ...state,
+      temporaryHitPoints,
+    })
+  ),
+  on(
+    updateRemainingHitDice,
+    (state, { remainingHitDice }): StatsState => ({
+      ...state,
+      remainingHitDice,
+    })
+  ),
+  on(
     updateAbilities,
     (state, { abilities }): StatsState => ({
       ...state,
@@ -131,6 +173,18 @@ export const selectBasics = createSelector(
 export const selectProficiencyBonus = createSelector(
   selectStatsFeature,
   (state) => state.proficiencyBonus
+);
+export const selectCurrentHitPoints = createSelector(
+  selectStatsFeature,
+  (state) => state.currentHitPoints
+);
+export const selectTempHitPoints = createSelector(
+  selectStatsFeature,
+  (state) => state.temporaryHitPoints
+);
+export const selectRemainingHitDice = createSelector(
+  selectStatsFeature,
+  (state) => state.remainingHitDice
 );
 
 export const selectCharacterName = createSelector(
