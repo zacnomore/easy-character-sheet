@@ -11,6 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { stats, STATS_FEATURE_NAME } from './stats/stats.store';
 import { SheetEffects } from './store/sheet.effects';
 import { MatDialogModule } from '@angular/material/dialog';
+import { skills, SKILLS_FEATURE_NAME } from './stats/skills/skills.store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule,
     StoreModule.forRoot(),
     StoreModule.forFeature(STATS_FEATURE_NAME, stats),
+    StoreModule.forFeature(SKILLS_FEATURE_NAME, skills),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([SheetEffects]),
   ],

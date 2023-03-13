@@ -6,9 +6,8 @@ import {
   on,
   props,
 } from '@ngrx/store';
-import { getType } from 'models/skills.map';
 
-import { Abilities, Basics, Skills } from 'models/stats.model';
+import { Abilities, Basics } from 'models/stats.model';
 
 export const updateBasics = createAction(
   '[Stats] Update Basics',
@@ -40,11 +39,6 @@ export const updateAbilities = createAction(
   props<{ abilities: Partial<Abilities> }>()
 );
 
-export const updateSkills = createAction(
-  '[Stats] Update Skills',
-  props<{ skills: Partial<Skills> }>()
-);
-
 interface StatsState {
   basics: Basics;
   proficiencyBonus: number;
@@ -52,7 +46,6 @@ interface StatsState {
   temporaryHitPoints: number;
   remainingHitDice: number;
   abilities: Abilities;
-  skills: Skills;
 }
 
 const initialState: StatsState = {
@@ -77,27 +70,8 @@ const initialState: StatsState = {
     strength: 10,
     wisdom: 10,
   },
-  skills: {
-    acrobatics: false,
-    animalHandling: false,
-    arcana: false,
-    athletics: false,
-    deception: false,
-    history: false,
-    insight: false,
-    intimidation: false,
-    investigation: false,
-    medicine: false,
-    nature: false,
-    perception: false,
-    performance: false,
-    persuasion: false,
-    religion: false,
-    sleightOfHand: false,
-    stealth: false,
-    survival: false,
-  },
 };
+
 export const stats = createReducer<StatsState>(
   initialState,
   on(
@@ -145,16 +119,6 @@ export const stats = createReducer<StatsState>(
       abilities: {
         ...state.abilities,
         ...abilities,
-      },
-    })
-  ),
-  on(
-    updateSkills,
-    (state, { skills }): StatsState => ({
-      ...state,
-      skills: {
-        ...state.skills,
-        ...skills,
       },
     })
   )
@@ -242,38 +206,6 @@ export const selectAbilityModifiers = createSelector(
 
 export const selectAbilityModifier = (name: keyof Abilities) =>
   createSelector(selectAbility(name), (score) => calculateModifier(score));
-
-export const selectSkillProficiencies = createSelector(
-  selectStatsFeature,
-  (state) => state.skills
-);
-
-export const selectSkillProficiency = (key: keyof Skills) =>
-  createSelector(selectSkillProficiencies, (skills) => skills[key]);
-
-const calculateSkill = (
-  modifier: number,
-  proficiencyBonus: number,
-  proficient: boolean
-) => modifier + Number(proficient) * proficiencyBonus;
-
-export const selectSkillValues = createSelector(
-  selectSkillProficiencies,
-  selectAbilityModifiers,
-  selectProficiencyBonus,
-  (skills, modifiers, bonus) =>
-    Object.fromEntries(
-      (Object.entries(skills) as [keyof Skills, boolean][]).map(
-        ([key, proficient]) => [
-          key,
-          calculateSkill(modifiers[getType(key)], bonus, proficient),
-        ]
-      )
-    )
-);
-
-export const selectSkillValue = (name: keyof Skills) =>
-  createSelector(selectSkillValues, (skills) => skills[name]);
 
 // TODO
 export const selectArmor = createSelector(

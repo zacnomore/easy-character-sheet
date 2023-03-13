@@ -5,13 +5,13 @@ import { Abilities, Skills } from 'models/stats.model';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { connectToStore } from 'src/app/utilities/store-connected-form';
 import { Store } from '@ngrx/store';
-import {
-  selectSkillProficiency,
-  selectSkillValue,
-  updateSkills,
-} from '../../stats.store';
 import { ObservedLifecycle } from 'src/app/utilities/lifecycle-observables';
 import { EMPTY, Observable } from 'rxjs';
+import {
+  selectSkillValue,
+  selectSkillProficiency,
+  updateSkills,
+} from '../skills.store';
 
 @Component({
   selector: 'ecs-skill',

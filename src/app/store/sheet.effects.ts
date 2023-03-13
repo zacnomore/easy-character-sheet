@@ -11,14 +11,12 @@ import {
   selectCurrentHitPoints,
   selectProficiencyBonus,
   selectRemainingHitDice,
-  selectSkillProficiencies,
   selectTempHitPoints,
   updateAbilities,
   updateBasics,
   updateCurrentHitPoints,
   updateProficiencyBonus,
   updateRemainingHitDice,
-  updateSkills,
   updateTempHitPoints,
 } from '../stats/stats.store';
 import { load, save, sheetReceived } from './sheet.store';
@@ -27,6 +25,10 @@ import {
   LoadSheetModalComponent,
   LoadSheetResponse,
 } from '../load-sheet-modal/load-sheet-modal.component';
+import {
+  selectSkillProficiencies,
+  updateSkills,
+} from '../stats/skills/skills.store';
 
 @Injectable()
 export class SheetEffects {
