@@ -1,5 +1,6 @@
-<mat-checkbox [formControl]="proficientControl"></mat-checkbox>
-
-<output>{{ value$ | async }}</output>
-
-<span>({{ type }})</span>
+<label>
+  <mat-checkbox [formControl]="proficientControl"></mat-checkbox>
+  <output>{{ value$ | async }}</output>
+  <span>{{ name }}</span>
+  <span>({{ _typeAbbr }})</span>
+</label>

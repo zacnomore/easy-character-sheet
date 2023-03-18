@@ -12,6 +12,7 @@ import {
   selectSkillProficiency,
   updateSkills,
 } from '../skills.store';
+import { getAbbreviation } from 'models/abilities.map';
 
 @Component({
   selector: 'ecs-skill',
@@ -27,7 +28,13 @@ export class SkillComponent extends ObservedLifecycle implements OnInit {
 
   @Input() name = '';
   @Input() key!: keyof Skills;
-  @Input() type!: keyof Abilities;
+  protected _type?: keyof Abilities;
+  protected _typeAbbr?: string;
+  @Input()
+  public set type(value: keyof Abilities) {
+    this._type = value;
+    this._typeAbbr = getAbbreviation(value);
+  }
 
   proficientControl = new FormControl<boolean>(false, { nonNullable: true });
   value$: Observable<number> = EMPTY;
