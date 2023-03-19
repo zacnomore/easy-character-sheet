@@ -9,13 +9,11 @@ import {
   selectAbilities,
   selectBasics,
   selectCurrentHitPoints,
-  selectProficiencyBonus,
   selectRemainingHitDice,
   selectTempHitPoints,
   updateAbilities,
   updateBasics,
   updateCurrentHitPoints,
-  updateProficiencyBonus,
   updateRemainingHitDice,
   updateTempHitPoints,
 } from '../stats/stats.store';
@@ -46,7 +44,6 @@ export class SheetEffects {
         switchMap(() =>
           combineLatest([
             this.store.select(selectBasics),
-            this.store.select(selectProficiencyBonus),
             this.store.select(selectCurrentHitPoints),
             this.store.select(selectTempHitPoints),
             this.store.select(selectRemainingHitDice),
@@ -57,7 +54,6 @@ export class SheetEffects {
         exhaustMap(
           ([
             basics,
-            proficiencyBonus,
             currentHitPoints,
             temporaryHitPoints,
             remainingHitDice,
@@ -67,7 +63,6 @@ export class SheetEffects {
             this.http.post('/api/save/sheet', {
               stats: {
                 basics,
-                proficiencyBonus,
                 currentHitPoints,
                 temporaryHitPoints,
                 remainingHitDice,
@@ -101,7 +96,6 @@ export class SheetEffects {
           sheet: {
             stats: {
               abilities,
-              proficiencyBonus,
               currentHitPoints,
               remainingHitDice,
               temporaryHitPoints,
@@ -112,7 +106,6 @@ export class SheetEffects {
         }) =>
           from([
             updateBasics({ basics }),
-            updateProficiencyBonus({ bonus: proficiencyBonus }),
             updateCurrentHitPoints({ currentHitPoints }),
             updateRemainingHitDice({ remainingHitDice }),
             updateTempHitPoints({ temporaryHitPoints }),

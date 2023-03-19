@@ -23,8 +23,6 @@ model Sheet {
   race              String    @db.VarChar(255) 
   alignment         String    @db.VarChar(255) 
   experiencePoints  Int
-  
-  proficiencyBonus  Int     @default(0)  
 
   strength        Int
   dexterity       Int

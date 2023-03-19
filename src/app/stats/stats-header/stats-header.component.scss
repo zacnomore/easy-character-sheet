@@ -4,11 +4,11 @@
   display: flex;
   align-items: baseline;
 
-  :first-child {
+  > *:first-child {
     flex-basis: math.div(100%, 3);
   }
 
-  :last-child {
+  > *:last-child {
     flex-basis: math.div(100%, 3) * 2;
   }
 }
@@ -18,12 +18,25 @@
 }
 
 section:not(.name) {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
 
-  mat-form-field {
-    flex: 1 1 200px;
+  > * {
     // Non-collapsing margins in flex children
     margin: calc(var(--field-v-gap) / 2) calc(var(--field-h-gap) / 2);
+  }
+}
+
+.xp {
+  display: flex;
+  gap: var(--gap-lg);
+  align-items: center;
+
+  > * {
+    width: 50%;
+  }
+
+  span {
+    margin-right: var(--gap-md);
   }
 }

@@ -30,8 +30,6 @@ export default async function handler(
         playerName,
         race,
 
-        proficiencyBonus,
-
         currentHitPoints,
         temporaryHitPoints,
 
@@ -73,7 +71,6 @@ export default async function handler(
               strength,
               wisdom,
             },
-            proficiencyBonus,
 
             currentHitPoints,
             temporaryHitPoints,

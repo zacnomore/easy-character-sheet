@@ -10,6 +10,7 @@ import {
   selectCharacterName,
   selectClassAndLevel,
   selectExperiencePoints,
+  selectLevel,
   selectPlayerName,
   selectRace,
   updateBasics,
@@ -34,6 +35,7 @@ export class StatsHeaderComponent extends ObservedLifecycle implements OnInit {
     super();
   }
 
+  protected level$ = this.store.select(selectLevel);
   protected characterNameControl = new FormControl('', { nonNullable: true });
   protected classAndLevelControl = new FormControl('', { nonNullable: true });
   protected backgroundControl = new FormControl('', { nonNullable: true });

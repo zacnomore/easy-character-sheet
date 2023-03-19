@@ -8,6 +8,7 @@ import {
   selectArmor,
   selectCurrentHitPoints,
   selectInitiative,
+  selectLevel,
   selectRemainingHitDice,
   selectTempHitPoints,
   updateCurrentHitPoints,
@@ -41,9 +42,7 @@ export class StatusComponent extends ObservedLifecycle implements OnInit {
   initiative$ = this.store.select(selectInitiative);
   // TODO
   speed$ = of(10);
-
-  // TODO
-  totalHitDice$ = of(1);
+  totalHitDice$ = this.store.select(selectLevel);
   currentHitPointsControl = new FormControl(0, { nonNullable: true });
   tempHitPointsControl = new FormControl(0, { nonNullable: true });
   remainingHitDiceControl = new FormControl(0, { nonNullable: true });

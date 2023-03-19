@@ -31,8 +31,14 @@
     <input matInput [formControl]="alignmentControl" />
   </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Experience Points</mat-label>
-    <input type="number" matInput [formControl]="experienceControl" />
-  </mat-form-field>
+  <div class="xp">
+    <mat-form-field>
+      <mat-label>XP</mat-label>
+      <input type="number" matInput [formControl]="experienceControl" />
+    </mat-form-field>
+    <label>
+      <span>Level</span>
+      <output>{{ level$ | async }}</output>
+    </label>
+  </div>
 </section>

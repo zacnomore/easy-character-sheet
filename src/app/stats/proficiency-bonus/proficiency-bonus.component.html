@@ -1,4 +1,4 @@
-<mat-form-field>
-  <mat-label>Proficiency Bonus</mat-label>
-  <input type="number" matInput [formControl]="bonusControl" />
-</mat-form-field>
+<label>
+  <output>{{ bonus$ | async }}</output>
+  <span>Proficiency Bonus</span>
+</label>

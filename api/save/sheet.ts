@@ -15,8 +15,6 @@ export default async function handler(
     stats: {
       abilities,
 
-      proficiencyBonus,
-
       currentHitPoints,
       temporaryHitPoints,
 
@@ -31,7 +29,6 @@ export default async function handler(
     .create({
       data: {
         ...basics,
-        proficiencyBonus,
         currentHitPoints,
         temporaryHitPoints,
         remainingHitDice,

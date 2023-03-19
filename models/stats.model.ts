@@ -1,8 +1,6 @@
 export interface Stats {
   basics: Basics;
 
-  proficiencyBonus: number;
-
   currentHitPoints: number;
   temporaryHitPoints: number;
 

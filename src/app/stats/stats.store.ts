@@ -41,7 +41,6 @@ export const updateAbilities = createAction(
 
 interface StatsState {
   basics: Basics;
-  proficiencyBonus: number;
   currentHitPoints: number;
   temporaryHitPoints: number;
   remainingHitDice: number;
@@ -58,7 +57,6 @@ const initialState: StatsState = {
     playerName: '',
     race: '',
   },
-  proficiencyBonus: 0,
   currentHitPoints: 0,
   temporaryHitPoints: 0,
   remainingHitDice: 0,
@@ -82,13 +80,6 @@ export const stats = createReducer<StatsState>(
         ...state.basics,
         ...basics,
       },
-    })
-  ),
-  on(
-    updateProficiencyBonus,
-    (state, { bonus }): StatsState => ({
-      ...state,
-      proficiencyBonus: bonus,
     })
   ),
   on(
@@ -134,10 +125,6 @@ export const selectBasics = createSelector(
   (state) => state.basics
 );
 
-export const selectProficiencyBonus = createSelector(
-  selectStatsFeature,
-  (state) => state.proficiencyBonus
-);
 export const selectCurrentHitPoints = createSelector(
   selectStatsFeature,
   (state) => state.currentHitPoints
@@ -181,6 +168,20 @@ export const selectAlignment = createSelector(
 export const selectExperiencePoints = createSelector(
   selectBasics,
   (basics) => basics.experiencePoints
+);
+
+const levelXp = [
+  0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000,
+  120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000,
+];
+
+export const selectLevel = createSelector(selectExperiencePoints, (xp) =>
+  levelXp.findIndex((requiredXp) => xp < requiredXp)
+);
+
+export const selectProficiencyBonus = createSelector(
+  selectLevel,
+  (level) => Math.floor((level - 1) / 4) + 2
 );
 
 export const selectAbilities = createSelector(
