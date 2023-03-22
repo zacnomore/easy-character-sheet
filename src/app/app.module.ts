@@ -12,7 +12,7 @@ import { stats, STATS_FEATURE_NAME } from './stats/stats.store';
 import { SheetEffects } from './store/sheet.effects';
 import { MatDialogModule } from '@angular/material/dialog';
 import { skills, SKILLS_FEATURE_NAME } from './stats/skills/skills.store';
-
+import { AuthModule } from '@auth0/auth0-angular';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -26,6 +26,13 @@ import { skills, SKILLS_FEATURE_NAME } from './stats/skills/skills.store';
     StoreModule.forFeature(SKILLS_FEATURE_NAME, skills),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([SheetEffects]),
+    AuthModule.forRoot({
+      domain: 'come-on-and-slam.auth0.com',
+      clientId: 'PgIGMrFPfKAotwPhPM2ODlVpfhpS0Vza',
+      authorizationParams: {
+        redirect_uri: window.location.origin,
+      },
+    }),
   ],
   providers: [
     {

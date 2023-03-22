@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Store } from '@ngrx/store';
 import { load, save } from '../store/sheet.store';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'ecs-header',
@@ -27,7 +28,7 @@ import { load, save } from '../store/sheet.store';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private store: Store) {}
+  constructor(private store: Store, private auth: AuthService) {}
 
   save() {
     this.store.dispatch(save());
@@ -35,5 +36,9 @@ export class HeaderComponent {
 
   load() {
     this.store.dispatch(load());
+  }
+
+  login() {
+    this.auth.loginWithRedirect();
   }
 }
